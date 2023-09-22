@@ -1,5 +1,7 @@
 
+
 * {
+  font-display: optional; /* Add font-display property for all elements */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,6 +9,7 @@
   text-decoration: none;
   font-family: "Source Sans Pro", sans-serif;
 }
+
 
 /* DepartmentSelect*/
 .DepartmentSelectWrapper {
@@ -180,7 +183,7 @@
 .nav-button {
   font-size: 1rem;
   padding: 10px 20px;
-  background-color: #93ad18;
+  background-color: rgb(103, 123, 4);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -192,8 +195,11 @@
 }
 
 .nav-button:hover {
-  background-color: #5a6e07;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: rgb(0, 19, 2);
+    background-color: rgb(237, 241, 238);
+    box-shadow: 0px 0px 5px rgb(93, 111, 3);
+    border: none;
+ 
 }
 .nav-button:not(:hover) {
   .nav-buttons-container:hover .nav-button {
@@ -213,7 +219,7 @@
 .save-button {
   font-size: 16px;
   padding: 10px 20px;
-  background-color: #93ad18;
+  background-color: #809615e6;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -221,7 +227,7 @@
   border-radius: 5px;
 }
 .save-button:hover {
-  background-color: #5a6e07;
+  background-color: rgb(103, 123, 4);
 }
 /* StateSelect */
 .state-select-wrapper {
@@ -345,7 +351,7 @@
 }
 .button-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 .modal-title {
   margin-bottom: 20px;
@@ -486,7 +492,7 @@
 .nav-button {
   font-size: 1rem;
   padding: 10px 20px;
-  background-color: #93ad18;
+  background-color: rgb(103, 123, 4);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -497,8 +503,9 @@
   position: relative;
 }
 .nav-button:hover {
-  background-color: #5a6e07;
+  background-color:rgb(216, 222, 201);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color:#5a6e07
 }
 .nav-button.activeNavButton {
   background-color: #5a6e07;
@@ -506,7 +513,7 @@
   top: 1px;
 }
 /* ShowButton */
-.show-button {
+.show-button,.list-added-button {
   width: 195px;
   font-size: 0.8rem;
   color: rgb(2, 62, 9);
@@ -516,6 +523,7 @@
   border-radius: 15px;
   padding :5px; 
 }
+
 .show-button:hover {
   background-color: rgb(101, 119, 9);
   color: white;
@@ -536,62 +544,36 @@
   color: rgb(2, 62, 9);
 }
 /* resetButton */
-.reset-button {
+.reset-button ,.data-btn{
   font-size: 0.8rem;
   padding: 10px 20px;
   color: rgb(2, 62, 9);
-  background-color: rgb(237, 241, 238);;
-  box-shadow: 0px 0px 5px rgb(93, 111, 3);;
+  background-color: rgb(237, 241, 238);
+  box-shadow: 0px 0px 5px rgb(93, 111, 3);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease 0s;
   border-radius: 50px;
   position: relative;
 }
-.reset-button:hover {
+.reset-button:hover ,.data-btn:hover{
   background-color: rgb(101, 119, 9);
   color: white;
 }
 /* bottomContainer */
-.bottom-container {
+.btn-container {
   display: flex;
   gap: 20px;
   justify-content: center;
   margin-bottom: 50px;
-  margin-top:15px;
+  margin-top:15px; 
 }
+
 /* DataTableStyles*/
 .fas fa-plus{
   color:white;
 }
-/* columns header items */
-.beICJd {
-  display: inline-flex;
-  align-items: center;
-  justify-content: inherit;
-  height: 100%;
-  width: 100%;
-  outline: none;
-  user-select: none;
-  overflow: hidden;
-  cursor: pointer;
-  color:white;
-}
-/* div header */
-.dHwQJD {
-  position: relative;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  line-height: normal;
-  padding-left: 16px;
-  padding-right: 16px;
-  background-color: rgb(147, 173, 24);
-}
-/* details  in header table */
-.sc-eLSjS {
-  color:white;
-}
+
 
 .section-title{
   text-align: center;
@@ -600,5 +582,7 @@
   margin-bottom: 30px;
 }
 
-
-
+.rdt_TableHeadRow{
+ color:#fff;
+  background-color:rgb(103, 123, 4)!important;
+}

@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useMemo  } from "react";
 import PropTypes from "prop-types";
 import { Modal } from "@jadina/modal-plugin";
 import { useNavigate } from "react-router-dom";
@@ -7,14 +6,16 @@ import { useNavigate } from "react-router-dom";
 const EmployeeDetailsModal = ({ isOpen, onClose, employee }) => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+  // Wrap the initialization of isOpen in useMemo
+  const isOpenMemo = useMemo(() => ({ Open: isOpen }), [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpenMemo.Open) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
-  }, [isOpen]);
+  }, [isOpenMemo]);
 
   const handleEditButtonClick = () => {
     if (employee) {

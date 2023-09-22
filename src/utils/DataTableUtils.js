@@ -1,4 +1,3 @@
-
 export function generateDataTableColumns(handleIconClick, isMobile) {
   const columns = [
     {

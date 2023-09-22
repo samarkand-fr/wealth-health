@@ -1,24 +1,27 @@
-
 import PropTypes from "prop-types";
 import departments from "../../../data/departementData";
-import React from "react"; // Don't forget to import React if you haven't already.
-import "../../../assets/styles/styles.css"; // Import your CSS file
+import React from "react";
+import "../../../assets/styles/styles.css";
 
 function DepartmentSelect({ name, value, onChange }) {
   return (
-    <select
-      name={name}
-      value={value}
-      onChange={onChange}
-      className="DepartmentSelectWrapper" 
-    >
-      <option value="">Please select a department</option>
-      {departments.map((department) => (
-        <option key={department} value={department}>
-          {department}
-        </option>
-      ))}
-    </select>
+    <div>
+      <label htmlFor={name}>Department</label>
+      <select
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="DepartmentSelectWrapper"
+        id={name} 
+      >
+        <option value="">Please select a department</option>
+        {departments.map((department) => (
+          <option key={department} value={department}>
+            {department}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
 

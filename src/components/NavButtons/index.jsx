@@ -1,10 +1,7 @@
-
-
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "../../assets/styles/styles.css"; // Import the CSS file
-
+import "../../assets/styles/styles.css"; 
 function NavButtons({ activePage }) {
   return (
     <nav className="nav-container">
@@ -35,5 +32,4 @@ function NavButtons({ activePage }) {
 NavButtons.propTypes = {
   activePage: PropTypes.oneOf(["createEmployee", "viewEmployees"]).isRequired,
 };
-
 export default NavButtons;

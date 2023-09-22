@@ -21,7 +21,7 @@ function useResponsive() {
       setIsMobile(windowWidth < MOBILE_SCREEN_WIDTH);
       setIsTablet(windowWidth < TABLET_SCREEN_WIDTH);
       setIsDesktop(windowWidth >= TABLET_SCREEN_WIDTH);
-    }, 250); // Adjust the debounce delay as needed (e.g., 250 milliseconds)
+    }, 250); // Adjust the debounce delay as needed 
 
     window.addEventListener("resize", handleResize);
 

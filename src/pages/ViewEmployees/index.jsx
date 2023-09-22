@@ -1,13 +1,12 @@
-
 import React from "react";
-import NavBar from "../../components/Header";
+import Header from "../../components/Header";
 import NavButtons from "../../components/NavButtons";
-import TableBody from "../../components/EmployeeTable/TableBody";
+import TableBody from "../../components/CurrentEmployees/TableBody";
 
 function ViewEmployees() {
   return (
     <div>
-      <NavBar />
+      <Header />
       <NavButtons activePage="viewEmployees" />
       <TableBody />
     </div>

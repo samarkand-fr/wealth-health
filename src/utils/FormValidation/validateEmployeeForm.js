@@ -1,6 +1,5 @@
 import { validateField } from "./fieldValidator";
 
-
 const validateCustomField = (
   value,
   minLength,

@@ -1,5 +1,3 @@
-
-
 const filterEmployees = (data, searchText, perPage) => {
   let filtered = [...data]; // Create a copy of the data to filter
 

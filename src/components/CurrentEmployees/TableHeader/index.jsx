@@ -1,5 +1,3 @@
-// TableHeader.js
-
 import React from "react";
 import PageSizeSelector from "./PageSizeSelector";
 import SearchInputField from "./SearchInputField";

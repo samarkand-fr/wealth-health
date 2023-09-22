@@ -9,10 +9,11 @@ function SearchInputField({ onSearch }) {
 
   return (
     <div className="search-container">
-      <label>Search </label>
+       <label htmlFor="searchInput">Search by text or date:</label>
       <input
         className="search-input"
         type="search"
+        id="searchInput"
         onChange={handleSearchChange}
         placeholder="text or date"
       />
