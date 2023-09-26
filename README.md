@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# WealthHealth - HRnet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+**Main goal is to modernize HRnet by converting it into a React-based application and replacing the problematic jQuery plugins with efficient React components.**
 
-In the project directory, you can run:
+  
+<kbd>![Add an employee](./src/assets/logo.png)</kbd>
 
-### `npm start`
+  
+ > ## Project Key Objectives:
+* Convert the entire HRnet application to React.
+* Convert one of the four jQuery-based plugins used in HRnet to a React component.
+* Replace the remaining three jQuery plugins with React components, either by coding them from scratch or utilizing existing libraries when appropriate.
+* Perform performance tests using Lighthouse to compare the performance of the old and new versions of the application.
+*  Create a plugin and publish your own library REACT | NPM.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+>## Provided Resources
+* [HRnet : code source](https://github.com/OpenClassrooms-Student-Center/P12_Front-end)
+* [Issues](https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  
+  
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [Visual Studio code](https://code.visualstudio.com/)
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [Git](https://git-scm.com/) pour cloner les repos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* [nodeJS](https://nodejs.org/fr/)  pour exécuter les commandes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* [npm](https://www.npmjs.com/)pour lancer l'application
+  
 
-### `npm run eject`
+## Dependencies
+- [Modal/plugIn](https://www.npmjs.com/package/@jadina/modal-plugin)
+- [reduxjs/toolkit](https://www.npmjs.com/package/@reduxjs/toolkit)
+- [lodash](https://www.npmjs.com/package/react-lodash)
+- [prop-types]()
+- [react-data-table-component](https://www.npmjs.com/package/react-data-table-component),
+- [react-dom](https://www.npmjs.com/package/react-dom)
+- [react-redux](https://www.npmjs.com/package/react-redux)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [styled-component](https://www.npmjs.com/package/styled-components)version "5.3.3"(compatabile with react-data-table-component)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
