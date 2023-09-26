@@ -17,6 +17,11 @@ import { Modal, useModal } from "@jadina/modal-plugin";
 import "../../assets/styles/styles.css";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * EmployeeForm component for creating new employee records.
+ *
+ * @returns {JSX.Element} The EmployeeForm component.
+ */
 function EmployeeForm() {
   const employee = useSelector((state) => state.employee.employee);
   const errors = useSelector((state) => state.employee.errors);
@@ -43,11 +48,24 @@ function EmployeeForm() {
     dispatch(setErrors(newErrors));
   }, [debouncedEmployee, dispatch]);
 
+ /**
+   * Handle input change event for form fields.
+   * Updates the employee state with the new input values.
+   *
+   * @param {Object} event - The event object.
+   */
   const handleChange = (event) => {
     const { name, value } = event.target;
     dispatch(setEmployee({ ...employee, [name]: value }));
   };
 
+
+  /**
+   * Handle form submission event.
+   * Validates the form data, dispatches actions, and shows a modal when data is successfully stored.
+   *
+   * @param {Object} e - The event object.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -65,6 +83,10 @@ function EmployeeForm() {
     handleOpenModal("customContent");
   };
 
+  /**
+   * Handle modal close event.
+   * Closes the modal and navigates to the view-employees page.
+   */
   const handleModalClose = () => {
     handleCloseModal();
     navigate("/view-employees");

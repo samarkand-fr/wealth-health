@@ -1,8 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../../../assets/styles/styles.css"; // Import the CSS file
+import "../../../assets/styles/styles.css"; 
 
+/**
+ * PageSizeSelector component for displaying a page size selector.
+ *
+ * @param {object} props - The component's properties.
+ * @param {function} props.onEntriesChange - The function to handle page size change.
+ * @returns {JSX.Element} The PageSizeSelector component.
+ */
 function PageSizeSelector({ onEntriesChange }) {
+  /**
+   * Handle the change event of the page size selector.
+   * @param {Event} event - The change event.
+   */
   const handleSelectChange = (event) => {
     onEntriesChange(parseInt(event.target.value, 10));
   };

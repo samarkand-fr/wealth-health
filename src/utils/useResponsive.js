@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import debounce from "lodash/debounce";
 
+/**
+ * A custom hook for responsive design that detects the current device screen size.
+ *
+ * @returns {Object} An object containing flags for mobile, tablet, and desktop screen sizes.
+ */
 function useResponsive() {
   const MOBILE_SCREEN_WIDTH = 768;
   const TABLET_SCREEN_WIDTH = 992;
@@ -16,15 +21,20 @@ function useResponsive() {
   );
 
   useEffect(() => {
+    /**
+     * Handle the window resize event using debounce for performance optimization.
+     */
     const handleResize = debounce(() => {
       const windowWidth = window.innerWidth;
       setIsMobile(windowWidth < MOBILE_SCREEN_WIDTH);
       setIsTablet(windowWidth < TABLET_SCREEN_WIDTH);
       setIsDesktop(windowWidth >= TABLET_SCREEN_WIDTH);
-    }, 250); // Adjust the debounce delay as needed 
+    }, 250); // Adjust the debounce delay as needed
 
+    // Add a window resize event listener
     window.addEventListener("resize", handleResize);
 
+    // Remove the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
     };

@@ -7,6 +7,11 @@ import FormField from "../../components/CreateEmployee/FormFields";
 import Header from "../../components/Header";
 import SaveButton from "../../components/CreateEmployee/SaveButton";
 
+/**
+ * EditEmployeeForm component for editing employee data.
+ *
+ * @returns {JSX.Element} The EditEmployeeForm component.
+ */
 const EditEmployeeForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,7 +34,7 @@ const EditEmployeeForm = () => {
   const [employeeData, setEmployeeData] = useState(selectedEmployeeData);
   const employees = useSelector((state) => state.employee.employees);
   const showErrors = useSelector((state) => state.employee.showErrors);
-
+  // useEffect to initialize the form data based on location state or default
   useEffect(() => {
     // Check if employeeData exists in the location state and use it if available
     const locationEmployeeData =
@@ -44,6 +49,12 @@ const EditEmployeeForm = () => {
     }
   }, [location.state, selectedEmployeeData]);
 
+   /**
+   * Handle input change event for form fields.
+   * Updates the employeeData state with the new input values.
+   *
+   * @param {Object} e - The event object.
+   */
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEmployeeData({
@@ -52,6 +63,13 @@ const EditEmployeeForm = () => {
     });
   };
 
+   /**
+   * Handle form submission event.
+   * Clones the selected employee's data with updated information,
+   * updates the employee data in the Redux store, and navigates to the view-employees page.
+   *
+   * @param {Object} e - The event object.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 

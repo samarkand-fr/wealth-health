@@ -1,6 +1,11 @@
 import React from "react";
 import "../../assets/styles/styles.css"; 
 
+/**
+ * Header component for displaying the site's header with the logo.
+ *
+ * @returns {JSX.Element} The Header component.
+ */
 function Header() {
   return (
     <nav className="navbar" data-testid="navbar" aria-label="Wealth Health">
@@ -11,4 +16,5 @@ function Header() {
     </nav>
   );
 }
+
 export default Header;

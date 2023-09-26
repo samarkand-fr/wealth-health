@@ -11,6 +11,11 @@ import TableHeader from "../TableHeader";
 import { useNavigate } from "react-router-dom";
 import mockedEmployees from "../../../data/MockedEmployees"; // Import the mock data
 
+/**
+ * EmployeeTable component for displaying and managing employee data.
+ *
+ * @returns {JSX.Element} The EmployeeTable component.
+ */
 function EmployeeTable() {
   const { employees } = useSelector((state) => state.employee);
   const dispatch = useDispatch();
@@ -37,42 +42,58 @@ function EmployeeTable() {
     [data, searchText, perPage]
   );
 
+   /**
+   * Handle search input changes and update search results.
+   * @param {string} newSearchText - The new search text.
+   */
   const handleSearch = (newSearchText) => {
-        setSearchText(newSearchText);
-        //  check if the search item exists here
-        const isItemFound = employees.some((employee) => {
-          if (employee && employee.name) {
-            return employee.name.toLowerCase().includes(newSearchText.toLowerCase());
-          }
-          return false; // Return false for undefined or null employees
-        });
-      
-        setSearchItemNotFound(!isItemFound);
-      };
+    setSearchText(newSearchText);
+    // Check if the search item exists here
+    const isItemFound = employees.some((employee) => {
+      if (employee && employee.name) {
+        return employee.name.toLowerCase().includes(newSearchText.toLowerCase());
+      }
+      return false; // Return false for undefined or null employees
+    });
+
+    setSearchItemNotFound(!isItemFound);
+  };
+
   // Routing
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   // Event handlers
   const handleEntriesChange = (newPerPage) => setPerPage(newPerPage);
-  
+
+  // Handle the closing of the employee details modal.
   const handleRowClick = (row) => {
     if (!isMobile) return;
     setSelectedEmployee(row);
     setModalOpen(true);
   };
 
+  /**
+ * Handle the click on an icon within a row.
+ * @param {Event} e - The click event.
+ * @param {object} row - The data associated with the clicked row.
+ */
   const handleIconClick = (e, row) => {
     e.stopPropagation();
     setSelectedEmployee(row);
     setModalOpen(true);
   };
 
+  // This function removes data from local storage,
+  // updates Redux state, and navigates to the homepage.
   const handleClearData = () => {
     localStorage.removeItem("employees");
     dispatch(setEmployees([]));
     navigate("/");
   };
 
+  // Generate DataTable columns with custom actions (icons)
   const columns = generateDataTableColumns(handleIconClick, isMobile);
+
+  // Handle the closing of the employee details modal.
   const handleModalClose = () => {
     setModalOpen(false);
     navigate("/view-employees");
@@ -80,15 +101,16 @@ function EmployeeTable() {
 
   // Determine whether to show the reset button
   const showResetButton = !useMockedData && filteredData.length > 0;
+  
   return (
     <div>
       <div className="btn-container">
-       <button className="data-btn" onClick={toggleData}>
-        {useMockedData ? "Switch to Actual Data" : "Switch to Mocked Data"}
-      </button>
+        <button className="data-btn" onClick={toggleData}>
+          {useMockedData ? "Switch to Actual Data" : "Switch to Mocked Data"}
+        </button>
       </div>
       <DataTable
-          data={filteredData}
+        data={filteredData}
         pagination
         responsive
         highlightOnHover
@@ -111,7 +133,7 @@ function EmployeeTable() {
         onClose={handleModalClose}
         employee={selectedEmployee}
       />
-        {showResetButton && (
+      {showResetButton && (
         <div className="btn-container">
           <button className="reset-button" onClick={handleClearData}>
             Reset
@@ -121,4 +143,5 @@ function EmployeeTable() {
     </div>
   );
 }
+
 export default EmployeeTable;

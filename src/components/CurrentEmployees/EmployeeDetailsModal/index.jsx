@@ -3,9 +3,22 @@ import PropTypes from "prop-types";
 import { Modal } from "@jadina/modal-plugin";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * EmployeeDetailsModal component for displaying employee details in a modal.
+ *
+ * @param {object} props - The component's properties.
+ * @param {boolean} props.isOpen - Determines whether the modal is open or closed.
+ * @param {function} props.onClose - The function to close the modal.
+ * @param {object} props.employee - The employee data to display in the modal.
+ * @returns {JSX.Element|null} The EmployeeDetailsModal component.
+ */
 const EmployeeDetailsModal = ({ isOpen, onClose, employee }) => {
   const navigate = useNavigate();
 
+  /**
+   * Handles the "Edit" button click event.
+   * Navigates to the edit employee page with employee data.
+   */
   const handleEditButtonClick = () => {
     if (employee) {
       navigate(`/edit-employee/${employee.firstName}-${employee.lastName}`, {
