@@ -1,12 +1,12 @@
 import React from "react";
-import "../../assets/styles/styles.css"; // Import the CSS file
+import "../../assets/styles/styles.css"; 
 
 function Header() {
   return (
     <nav className="navbar" data-testid="navbar" aria-label="Wealth Health">
       <div className="logo">
         <div className="logo-image" />
-        <h1>Wealth Health</h1>
+        <h1>Wealth Health-HRnet</h1>
       </div>
     </nav>
   );

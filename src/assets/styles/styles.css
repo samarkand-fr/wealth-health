@@ -1,5 +1,3 @@
-
-
 * {
   font-display: optional; /* Add font-display property for all elements */
   margin: 0;
@@ -152,6 +150,7 @@
 }
 .logo-image {
   background-image: url(../logo.png);
+  background-size: cover;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -219,15 +218,16 @@
 .save-button {
   font-size: 16px;
   padding: 10px 20px;
-  background-color: #809615e6;
   color: #fff;
+  background-color:rgb(2, 62, 9);
+  box-shadow: 0px 0px 5px rgb(93, 111, 3);
   border: none;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 5px;
 }
 .save-button:hover {
-  background-color: rgb(103, 123, 4);
+  background-color: #5a6e07;
 }
 /* StateSelect */
 .state-select-wrapper {
@@ -586,3 +586,7 @@
  color:#fff;
   background-color:rgb(103, 123, 4)!important;
 }
+
+
+
+

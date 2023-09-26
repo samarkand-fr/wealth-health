@@ -13,6 +13,7 @@ import Header from "../../components/Header";
 import NavButtons from "../../components/NavButtons";
 import SaveButton from "../../components/CreateEmployee/SaveButton";
 import { Modal, useModal } from "@jadina/modal-plugin";
+
 import "../../assets/styles/styles.css";
 import { useNavigate } from "react-router-dom";
 
@@ -140,7 +141,6 @@ function EmployeeForm() {
               showError={showErrors}
             />
             <FormField
-             
               type="stateSelect"
               name="state"
               id="state"
@@ -148,7 +148,7 @@ function EmployeeForm() {
               onChange={handleChange}
               error={errors.state}
               showError={showErrors}
-              aria-label="Select State" // ARIA label for the State dropdown
+              aria-label="Select State"
             />
             <FormField
               label="Zip code"
@@ -166,7 +166,6 @@ function EmployeeForm() {
           <div className="department-container-label">
             <FormField
               labelComponent="Department"
-           
               type="departmentSelect"
               name="department"
               id="department"
@@ -174,7 +173,7 @@ function EmployeeForm() {
               onChange={handleChange}
               showError={showErrors}
               error={errors.department}
-              aria-label="Select Department" // ARIA label for the Department dropdown
+              aria-label="Select Department" 
             />
           </div>
         </div>

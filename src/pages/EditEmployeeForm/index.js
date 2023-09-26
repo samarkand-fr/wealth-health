@@ -132,7 +132,6 @@ const EditEmployeeForm = () => {
               showError={showErrors}
             />
             <FormField
-              label="State"
               type="stateSelect"
               name="state"
               id="state"
@@ -155,7 +154,6 @@ const EditEmployeeForm = () => {
           <div className="department-container-label">
             <FormField
               labelComponent="Department"
-              label="Department"
               type="departmentSelect"
               name="department"
               id="department"
