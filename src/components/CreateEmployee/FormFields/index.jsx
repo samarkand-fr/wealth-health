@@ -6,8 +6,24 @@ import StateSelect from "../SelectState";
 import DepartmentSelect from "../SelectDepartment";
 import "../../../assets/styles/styles.css";
 
+// Define a mapping of input components based on their types
+const inputComponents = {
+  text: InputField,
+  date: InputField,
+  stateSelect: StateSelect,
+  departmentSelect: DepartmentSelect,
+};
+
+// Define a mapping of label components based on their types
+const labelComponents = {
+  text: "label",
+  date: "label",
+  stateSelect: "state-label",
+  departmentSelect: "department-label",
+};
+
 /**
- * A dynamic form field component that renders different input types based on the 'type' prop.
+ * Component that renders different input types based on the 'type' prop.
  *
  * @param {object} props - The component's properties.
  * @param {string} props.label - The label for the form field.
@@ -18,7 +34,6 @@ import "../../../assets/styles/styles.css";
  * @param {function} props.onChange - The function to call when the form field value changes.
  * @param {boolean} props.showError - Determines whether to display an error message.
  * @param {string} props.error - The error message to display (if showError is true).
- * @param {string|React.Component} [props.labelComponent] - The component to use for rendering the label (default: "label").
  * @returns {JSX.Element} The form field component.
  */
 const FormFields = ({
@@ -30,85 +45,43 @@ const FormFields = ({
   onChange,
   showError,
   error,
-  labelComponent: LabelComponent = "label",
 }) => {
   // Generate a unique input ID based on the 'id' or 'name' prop.
-  const inputId = id || name;
+  const inputId = `${id || name}-input`;
 
-  // Define the input field based on the 'type' prop.
-  let inputField;
-  switch (type) {
-    case "text":
-    case "date":
-      inputField = (
-        <InputField
-          className="input-text"
-          type={type}
-          name={name}
-          id={inputId}
-          value={value}
-          onChange={onChange}
-          aria-label={label}
-          aria-labelledby={inputId}
-        />
-      );
-      break;
-    case "stateSelect":
-      inputField = (
-        <StateSelect
-          name={name}
-          id={inputId}
-          value={value}
-          onChange={onChange}
-        />
-      );
-      break;
-    case "departmentSelect":
-      // Consider moving the labelComponent assignment outside the switch statement
-      LabelComponent = "div";
-      inputField = (
-        <DepartmentSelect
-          name={name}
-          id={inputId}
-          value={value}
-          onChange={onChange}
-          aria-label={label}
-          aria-labelledby={inputId}
-        />
-      );
-      break;
-    default:
-      inputField = (
-        <InputField
-          className="input-text"
-          type="text"
-          name={name}
-          id={inputId}
-          value={value}
-          onChange={onChange}
-          aria-label={label}
-          aria-labelledby={inputId}
-        />
-      );
-  }
+  // Get the corresponding InputComponent and LabelComponent based on the 'type'
+  const InputComponent = inputComponents[type] || InputField;
+  const LabelComponent = labelComponents[type] || "label";
 
   return (
     <div className="form-field">
+      {/* Label for the form field */}
       <LabelComponent htmlFor={inputId}>
         {label}
-        {inputField}
+        {/* Input component */}
+        <InputComponent
+          className={type === "text" ? "input-text" : ""}
+          type={type === "date" ? "date" : "text"}
+          name={name}
+          id={id}
+          value={value}
+          onChange={onChange}
+          aria-label={label}
+          aria-labelledby={inputId}
+        />
       </LabelComponent>
+
+      {/* Display an error message if 'showError' is true */}
       {showError && error && <ValidationError message={error} />}
     </div>
   );
 };
 
 FormFields.propTypes = {
-  labelComponent: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.oneOf(["text", "date", "stateSelect", "departmentSelect"]),
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   showError: PropTypes.bool.isRequired,
