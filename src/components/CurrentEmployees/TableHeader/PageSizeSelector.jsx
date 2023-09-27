@@ -1,6 +1,7 @@
-import React from "react";
+// export default PageSizeSelector;
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import "../../../assets/styles/styles.css"; 
+import "../../../assets/styles/styles.css";
 
 /**
  * PageSizeSelector component for displaying a page size selector.
@@ -10,13 +11,31 @@ import "../../../assets/styles/styles.css";
  * @returns {JSX.Element} The PageSizeSelector component.
  */
 function PageSizeSelector({ onEntriesChange }) {
+  // Initialize the selectedEntries state with a default value of 10
+  const [selectedEntries, setSelectedEntries] = useState(10);
+
   /**
    * Handle the change event of the page size selector.
    * @param {Event} event - The change event.
    */
   const handleSelectChange = (event) => {
-    onEntriesChange(parseInt(event.target.value, 10));
+    const newSize = parseInt(event.target.value, 10);
+    setSelectedEntries(newSize);
+    onEntriesChange(newSize);
+
+    // Store the selected page size in localStorage
+    localStorage.setItem("selectedEntries", newSize.toString());
   };
+
+  // Use useEffect to retrieve the selected page size from localStorage on component mount
+  useEffect(() => {
+    const storedEntries = localStorage.getItem("selectedEntries");
+    if (storedEntries) {
+      const newSize = parseInt(storedEntries, 10);
+      setSelectedEntries(newSize);
+      onEntriesChange(newSize);
+    }
+  }, [onEntriesChange]);
 
   return (
     <div className="div">
@@ -25,6 +44,7 @@ function PageSizeSelector({ onEntriesChange }) {
         className="select"
         id="entriesSelect"
         onChange={handleSelectChange}
+        value={selectedEntries} // Set the selected value based on state
         aria-label="Number of entries per page"
       >
         <option value="10">10</option>
