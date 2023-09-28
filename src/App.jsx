@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import EmployeeForm from "./pages/EmployeeForm";
 import ViewEmployees from "./pages/ViewEmployees";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -12,9 +13,18 @@ const App = () => {
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route path="/" element={<EmployeeForm />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <EmployeeForm />
+                {/* Add a default redirect when accessing the root path */}
+                <Navigate to="/view-employees" replace />
+              </>
+            }
+          />
           <Route path="/view-employees" element={<ViewEmployees showLabel={true} />} />
-          <Route path="/edit-employee/:name" element={<EditEmployeeForm />} /> 
+          <Route path="/edit-employee/:name" element={<EditEmployeeForm />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
@@ -23,4 +33,3 @@ const App = () => {
 };
 
 export default App;
-
