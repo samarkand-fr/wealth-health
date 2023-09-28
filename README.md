@@ -10,7 +10,7 @@
 * Convert one of the four jQuery-based plugins used in HRnet to a React component.
 * Replace the remaining three jQuery plugins with React components, either by coding them from scratch or utilizing existing libraries when appropriate.
 * Perform performance tests using Lighthouse to compare the performance of the old and new versions of the application.
-*  Create a plugin and publish your own library REACT | NPM.
+*  Create a plugin and publish your own library REACT | NPM.[Modal/plugIn](https://www.npmjs.com/package/@jadina/modal-plugin)
 
 >## Provided Resources
 * [HRnet : code source](https://github.com/OpenClassrooms-Student-Center/P12_Front-end)
@@ -47,7 +47,7 @@
 ### launching the frontend 
 
 1. Clone the project
-   > **_git clone https://github.com/samarkand-fr/wealth-health.git**
+   > **_git clone https://github.com/samarkand-fr/wealth-health.git**_
 1. Access the project directory:
    > **_cd Wealth-Health_**
 1. Install npm packages:
