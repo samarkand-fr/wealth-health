@@ -1,4 +1,4 @@
-<kbd>![Add an employee](./src/assets/logo.png)</kbd>
+![](./src/assets/logo.png)
 # WealthHealth - HRnet
 
 
@@ -38,10 +38,24 @@
 - [lodash](https://www.npmjs.com/package/react-lodash)
 - [prop-types]()
 - [react-data-table-component](https://www.npmjs.com/package/react-data-table-component),
+- [styled-component](https://www.npmjs.com/package/styled-components)version "5.3.3"(compatible with react-data-table-component)
 - [react-dom](https://www.npmjs.com/package/react-dom)
 - [react-redux](https://www.npmjs.com/package/react-redux)
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
-- [styled-component](https://www.npmjs.com/package/styled-components)version "5.3.3"(compatabile with react-data-table-component)
+
+
+### launching the frontend 
+
+1. Clone the project
+   > **_git clone https://github.com/samarkand-fr/wealth-health.git**
+1. Access the project directory:
+   > **_cd Wealth-Health_**
+1. Install npm packages:
+   > **_npm install_**
+1. Then launch :
+   > **_npm start_**
+1. The front-end will be launched in
+   > **_http://localhost:3000_**
 
 ## License
 
