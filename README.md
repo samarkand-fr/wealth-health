@@ -1,12 +1,10 @@
+<kbd>![Add an employee](./src/assets/logo.png)</kbd>
 # WealthHealth - HRnet
 
 
 **Main goal is to modernize HRnet by converting it into a React-based application and replacing the problematic jQuery plugins with efficient React components.**
 
-  
-<kbd>![Add an employee](./src/assets/logo.png)</kbd>
 
-  
  > ## Project Key Objectives:
 * Convert the entire HRnet application to React.
 * Convert one of the four jQuery-based plugins used in HRnet to a React component.

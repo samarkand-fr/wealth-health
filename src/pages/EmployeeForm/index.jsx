@@ -7,7 +7,7 @@ import {
   addEmployee,
   resetEmployee,
 } from "../../redux/slices/employeeSlice";
-import { validateEmployeeForm } from "../../utils/FormValidation/validateEmployeeForm";
+import { validateEmployeeForm } from "../../utils/fieldValidation";
 import FormField from "../../components/CreateEmployee/FormFields";
 import Header from "../../components/Header";
 import NavButtons from "../../components/NavButtons";
