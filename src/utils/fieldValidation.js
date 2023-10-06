@@ -109,6 +109,9 @@ const validateField = (fieldValue, minLength, errorMsg) => {
     const errors = {};
   
     // Validate each field based on the defined rules
+    // iterates through an array of validation rules,
+    // applies each rule to a specific field in the employee object, 
+    // and collects validation error messages for those fields.
     validationRules.forEach((rule) => {
       const { field, validator } = rule;
       const { error, message } = validator(employee[field]);

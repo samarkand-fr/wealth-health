@@ -102,6 +102,9 @@ function EmployeeTable() {
   // Determine whether to show the reset button
   const showResetButton = !useMockedData && filteredData.length > 0;
   
+   // Determine whether the data is mocked
+   const isDataMocked = useMockedData;
+
   return (
     <div>
       <div className="btn-container">
@@ -132,6 +135,7 @@ function EmployeeTable() {
         isOpen={modalOpen}
         onClose={handleModalClose}
         employee={selectedEmployee}
+        isDataMocked={isDataMocked} 
       />
       {showResetButton && (
         <div className="btn-container">
