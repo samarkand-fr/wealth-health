@@ -7,22 +7,22 @@
  */
 
 /**
- * validateField():Validates a form field based on its value and minimum length.
+ * Validates a form field based on its value and pattern.
  *
  * @param {string} fieldValue - The value of the field being validated.
- * @param {number} minLength - The minimum length required for the field value.
+ * @param {RegExp} pattern - The regular expression pattern for validation.
  * @param {string} errorMsg - The error message to return if validation fails.
- * @returns {ValidationResult} - The result of the validation.
+ * @returns {ValidationResult} The result of the validation.
  */
-const validateField = (fieldValue, minLength, errorMsg) => {
-    // Trim the field value and check its length against the minimum length.
-    const error = fieldValue.trim().length < minLength;
-  
-    return {
-      error,
-      message: error ? errorMsg : "",
-    };
+const validateField = (fieldValue, pattern, errorMsg) => {
+  const error = !pattern.test(fieldValue);
+
+  return {
+    error,
+    message: error ? errorMsg : "",
   };
+};
+
   
   /**
    * Validates an employee form based on a set of validation rules.
@@ -42,7 +42,7 @@ const validateField = (fieldValue, minLength, errorMsg) => {
         validator: (value) =>
           validateField(
             value,
-            2,
+            /^[A-Za-z\s-]+$/,
             "First name should be at least 2 characters long. Only letters, spaces, and hyphens are allowed."
           ),
       },
@@ -51,7 +51,7 @@ const validateField = (fieldValue, minLength, errorMsg) => {
         validator: (value) =>
           validateField(
             value,
-            2,
+            /^[A-Za-z\s-]+$/,
             "Last name should be at least 2 characters long. Only letters, spaces, and hyphens are allowed."
           ),
       },
@@ -60,29 +60,43 @@ const validateField = (fieldValue, minLength, errorMsg) => {
         validator: (value) =>
           validateField(
             value,
-            3,
+            /^\S/,
             "Please enter your date of birth"
           ),
       },
       {
         field: "startDate",
-        validator: (value) => validateField(value, 3, "Please enter a date"),
+        validator: (value) =>
+          validateField(
+            value,
+            /^\S/,
+            "Please enter a date"
+          ),
       },
       {
         field: "state",
-        validator: (value) => validateField(value, 2, "Please choose a State"),
+        validator: (value) =>
+          validateField(
+            value,
+            /^\S/,
+            "Please choose a State"
+          ),
       },
       {
         field: "department",
         validator: (value) =>
-          validateField(value, 3, "Please choose a department"),
+          validateField(
+            value,
+            /^\S/,
+            "Please choose a department"
+          ),
       },
       {
         field: "street",
         validator: (value) =>
           validateField(
             value,
-            3,
+            /^[\w\d\s-]{3,}$/,
             "The address must contain at least 3 characters. Only letters, numbers, spaces, and hyphens are allowed."
           ),
       },
@@ -91,7 +105,7 @@ const validateField = (fieldValue, minLength, errorMsg) => {
         validator: (value) =>
           validateField(
             value,
-            3,
+            /^[A-Za-z\s-]+$/,
             "City is required. Only letters, spaces, and hyphens are allowed."
           ),
       },
@@ -100,8 +114,8 @@ const validateField = (fieldValue, minLength, errorMsg) => {
         validator: (value) =>
           validateField(
             value,
-            5,
-            "The postal code must consist of five numbers only."
+            /^\d{5}$/,
+            "The postal code must consist of exactly 5 digits."
           ),
       },
     ];
