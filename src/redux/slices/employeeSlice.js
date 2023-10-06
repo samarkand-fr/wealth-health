@@ -64,6 +64,16 @@ const employeeSlice = createSlice({
         localStorage.setItem("employees", JSON.stringify(updatedEmployees));
       }
     },
+      // Reducer for deleting an employee
+      deleteEmployee: (state, action) => {
+        const employeeToDelete = action.payload;
+        // Use filter to create a new array without the deleted employee
+        state.employees = state.employees.filter(
+          (employee) => employee.firstName !== employeeToDelete.firstName || employee.lastName !== employeeToDelete.lastName
+        );
+        // Update local storage with the new employees array
+        localStorage.setItem("employees", JSON.stringify(state.employees));
+      },
     // Reducer for resetting the current employee
     resetEmployee: (state, action) => {
       state.employee = {
@@ -90,6 +100,7 @@ export const {
   addEmployee,
   updateEmployee,
   resetEmployee,
+  deleteEmployee
 } = employeeSlice.actions;
 
 export default employeeSlice.reducer;

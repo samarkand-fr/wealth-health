@@ -11,17 +11,20 @@ import { useNavigate } from "react-router-dom";
  * @param {function} props.onClose - The function to close the modal.
  * @param {object} props.employee - The employee data to display in the modal.
  * @param {boolean} props.isDataMocked - Indicates whether the data is mocked.
+ * @param {function} props.onDelete - The function to handle the "Delete" button click.
  * @returns {JSX.Element|null} The EmployeeDetailsModal component.
  */
-const EmployeeDetailsModal = ({ isOpen, onClose, employee, isDataMocked }) => {
+const EmployeeDetailsModal = ({
+  isOpen,
+  onClose,
+  employee,
+  isDataMocked,
+  onDelete, 
+}) => {
   const navigate = useNavigate();
 
-  /**
-   * Handles the "Edit" button click event.
-   * Navigates to the edit employee page with employee data.
-   */
   const handleEditButtonClick = () => {
-    if (employee && !isDataMocked) { // Check if data is not mocked
+    if (employee && !isDataMocked) {
       navigate(`/edit-employee/${employee.firstName}-${employee.lastName}`, {
         state: { employeeData: employee },
       });
@@ -50,8 +53,11 @@ const EmployeeDetailsModal = ({ isOpen, onClose, employee, isDataMocked }) => {
           <p>Department: {employee.department}</p>
         </div>
         <div className="modal-actions">
-          {!isDataMocked && ( // Conditionally render the "Edit" button
-            <button onClick={handleEditButtonClick}>Edit</button>
+          {!isDataMocked && (
+            <>
+              <button onClick={handleEditButtonClick}>Edit</button>
+              <button onClick={() => onDelete(employee)}>Delete</button>
+            </>
           )}
         </div>
       </div>
@@ -63,13 +69,14 @@ EmployeeDetailsModal.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
   employee: PropTypes.shape({}),
-  isDataMocked: PropTypes.bool, 
+  isDataMocked: PropTypes.bool,
+  onDelete: PropTypes.func.isRequired, 
 };
 
 EmployeeDetailsModal.defaultProps = {
   isOpen: false,
   employee: null,
-  isDataMocked: false, // Default value is not mocked
+  isDataMocked: false,
 };
 
 export default EmployeeDetailsModal;

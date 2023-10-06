@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setEmployees } from "../../../redux/slices/employeeSlice";
+import { setEmployees, deleteEmployee  } from "../../../redux/slices/employeeSlice";
 import DataTable from "react-data-table-component";
 import ErrorHandler from "../ErrorTableHandler";
 import EmployeeDetailsModal from "../EmployeeDetailsModal";
@@ -105,6 +105,18 @@ function EmployeeTable() {
    // Determine whether the data is mocked
    const isDataMocked = useMockedData;
 
+  // Handle the deletion of an employee.
+  const handleDeleteEmployee = () => {
+    // Check if a selected employee exists
+    if (selectedEmployee) {
+      // Dispatch the deleteEmployee action with the selectedEmployee data to delete
+      dispatch(deleteEmployee(selectedEmployee));
+      
+      // Close the modal after the employee has been deleted
+      setModalOpen(false);
+    }
+};
+
   return (
     <div>
       <div className="btn-container">
@@ -136,6 +148,7 @@ function EmployeeTable() {
         onClose={handleModalClose}
         employee={selectedEmployee}
         isDataMocked={isDataMocked} 
+        onDelete={handleDeleteEmployee}
       />
       {showResetButton && (
         <div className="btn-container">
