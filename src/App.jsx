@@ -11,7 +11,7 @@ import store from './redux/store';
 const App = () => {
   return (
     <Provider store={store}>
-      <Router basename="/wealth-health">
+      <Router>
         <Routes>
           <Route path="/" element={<EmployeeForm />} />
           <Route path="/view-employees" element={<ViewEmployees showLabel={true} />} />
