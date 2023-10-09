@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ValidationError from "../ValidationError";
-import InputField from "../DateInput";
+import InputField from "../InputField ";
 import StateSelect from "../SelectState";
 import DepartmentSelect from "../SelectDepartment";
 import "../../../assets/styles/styles.css";

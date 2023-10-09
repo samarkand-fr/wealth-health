@@ -37,34 +37,36 @@ const EmployeeDetailsModal = ({
 
   return (
     <Modal isOpen={isOpen} close={onClose}>
-      <div className="modal-content">
-        <div className={`modal-details ${isOpen ? "visible" : ""}`}>
-          <h2 className="styled-h2">Employee Details</h2>
-          <p>
-            Name: {employee.firstName} {employee.lastName}
-          </p>
-          <p>Start Date: {employee.startDate}</p>
-          <p>Department: {employee.department}</p>
-          <p>Date of Birth: {employee.dateOfBirth}</p>
-          <p>
-            Address: {employee.street}, {employee.city}, {employee.state}{" "}
-            {employee.zipCode}
-          </p>
-          <p>Department: {employee.department}</p>
+      {isOpen && ( // conditional rendering
+        <div className="modal-content">
+          <div className="modal-details">
+            <h2 className="styled-h2">Employee Details</h2>
+            {employee && (
+              <>
+                <p>Name: {employee.firstName} {employee.lastName}</p>
+                <p>Start Date: {employee.startDate}</p>
+                <p>Department: {employee.department}</p>
+                <p>Date of Birth: {employee.dateOfBirth}</p>
+                <p>
+                  Address: {employee.street}, {employee.city}, {employee.state}{" "}
+                  {employee.zipCode}
+                </p>
+              </>
+            )}
+          </div>
+          <div className="modal-actions">
+            {!isDataMocked && (// conditional rendering
+              <>
+                <button onClick={handleEditButtonClick}>Edit</button>
+                <button onClick={() => onDelete(employee)}>Delete</button>
+              </>
+            )}
+          </div>
         </div>
-        <div className="modal-actions">
-          {!isDataMocked && (
-            <>
-              <button onClick={handleEditButtonClick}>Edit</button>
-              <button onClick={() => onDelete(employee)}>Delete</button>
-            </>
-          )}
-        </div>
-      </div>
+      )}
     </Modal>
   );
 };
-
 EmployeeDetailsModal.propTypes = {
   isOpen: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
